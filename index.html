@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Glowify | Skincare Guide</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+    <a href="#" class="logo">Glowify<span>♡</span></a>
+
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#products">Products</a>
+        <a href="#skin">Skin Types</a>
+        <a href="#acids">Ingredients</a>
+        <a href="#tips">Tips</a>
+    </nav>
+
+    <div class="cart">🛍️ Cart: <span id="cart-count">0</span></div>
+</header>
+
+<section class="hero" id="home">
+    <div class="hero-text">
+        <p class="tag">YOUR SKIN, YOUR GLOW</p>
+        <h1>Healthy Skin.<br><span>Happy You.</span></h1>
+        <p>
+            Discover skincare products and learn which
+            ingredients are suitable for your unique skin type.
+        </p>
+        <a href="#products" class="btn">Explore Products</a>
+    </div>
+    <div class="hero-image">
+        <img src="https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?w=700"
+             alt="Skincare products">
+    </div>
+</section>
+
+<section class="section" id="skin">
+    <h2>Find Your Skin Type</h2>
+    <p class="subtitle">Choose your skin type to discover suitable products.</p>
+
+    <div class="skin-buttons">
+        <button onclick="filterSkin('Oily')">Oily Skin</button>
+        <button onclick="filterSkin('Dry')">Dry Skin</button>
+        <button onclick="filterSkin('Sensitive')">Sensitive Skin</button>
+        <button onclick="filterSkin('Combination')">Combination</button>
+        <button onclick="filterSkin('Normal')">Normal Skin</button>
+        <button onclick="filterSkin('All')">All Products</button>
+    </div>
+
+    <div class="skin-info" id="skin-info">
+        Select a skin type to see its skincare guide.
+    </div>
+</section>
+
+<section class="section" id="products">
+   <!-- AI SKIN ANALYZER -->
+<section class="analyzer-section" id="analyzer">
+
+    <div class="analyzer-heading">
+        <span>GLOWIFY SMART BEAUTY</span>
+        <h2>AI Skin Analyzer ✨</h2>
+        <p>Discover your skin needs and get personalized skincare suggestions.</p>
+    </div>
+
+    <div class="analyzer-box">
+
+        <div class="upload-area">
+            <h3>Upload Your Skin Photo</h3>
+            <p>Your photo is only previewed in this demo.</p>
+
+            <label for="skinPhoto" class="upload-button">
+                📷 Choose Your Photo
+                </label>
+
+            <input
+                type="file"
+                id="skinPhoto"
+                accept="image/*"
+                hidden
+                onchange="previewSkinPhoto(event)"
+            >
+
+            <img id="photoPreview" alt="Your photo preview">
+
+        </div>
+
+        <div class="skin-questions">
+
+            <h3>Tell Us About Your Skin</h3>
+         <label for="skinType">Choose your skin type:</label>
+
+            <select id="skinType">
+                <option value="">Select skin type</option>
+                <option value="Oily">Oily Skin</option>
+                <option value="Dry">Dry Skin</option>
+                <option value="Sensitive">Sensitive Skin</option>
+                <option value="Combination">Combination Skin</option>
+                <option value="Normal">Normal Skin</option>
+            </select>
+           <label for="skinConcern">Your main skin concern:</label>
+
+            <select id="skinConcern">
+                <option value="">Select your concern</option>
+                <option value="Acne">Acne and clogged pores</option>
+                <option value="Dryness">Dryness</option>
+                <option value="Dullness">Dull-looking skin</option>
+                <option value="Sensitivity">Skin sensitivity</option>
+                <option value="Hydration">Lack of hydration</option>
+            </select>
+
+            <button onclick="analyzeSkin()" class="analyze-button">
+                Analyze My Skin ✨
+            </button>
+
+        </div>
+
+    </div>
+    <div id="analysisResult" class="analysis-result">
+        <h3>Your Personalized Skin Report</h3>
+        <p>Your recommendations will appear here.</p>
+    </div>
+
+</section>
+  <h2>Our Skincare Products</h2>
+    <p class="subtitle">Choose products according to your skin needs.</p>
+
+    <div class="product-grid" id="product-list"></div>
+</section>
+
+<section class="section" id="acids">
+    <h2>Skincare Ingredients & Acids</h2>
+    <p class="subtitle">
+        Learn what skincare ingredients do and which skin types
+        may benefit from them.
+    </p>
+
+    <div class="ingredient-grid">
+
+        <div class="ingredient-card">
+            <h3>Hyaluronic Acid</h3>
+            <p>Helps attract and retain moisture in the skin.</p>
+            <b>Suitable for:</b> All skin types.
+        </div>
+
+        <div class="ingredient-card">
+            <h3>Salicylic Acid (BHA)</h3>
+            <p>Helps unclog pores and manage excess oil.</p>
+            <b>Suitable for:</b> Oily, acne-prone skin.
+        </div>
+
+        <div class="ingredient-card">
+            <h3>Glycolic Acid (AHA)</h3>
+            <p>Exfoliates the skin surface and improves texture.</p>
+            <b>Suitable for:</b> Some dull or rough skin types.
+        </div>
+
+        <div class="ingredient-card">
+            <h3>Lactic Acid (AHA)</h3>
+            <p>A gentle exfoliating acid that also supports hydration.</p>
+            <b>Suitable for:</b> Dry or rough skin, if tolerated.
+        </div>
+
+        <div class="ingredient-card">
+            <h3>Niacinamide</h3>
+            <p>Supports the skin barrier and helps balance oil.</p>
+            <b>Suitable for:</b> Most skin types.
+        </div>
+
+        <div class="ingredient-card">
+            <h3>Azelaic Acid</h3>
+            <p>Can help with uneven tone and visible redness.</p>
+            <b>Suitable for:</b> Some acne-prone or redness-prone skin.
+        </div>
+
+        <div class="ingredient-card">
+            <h3>Vitamin C</h3>
+            <p>An antioxidant that helps protect against environmental damage.</p>
+            <b>Suitable for:</b> Many skin types, if tolerated.
+        </div>
+
+        <div class="ingredient-card">
+            <h3>PHA</h3>
+            <p>A larger-molecule exfoliating acid that works on the skin surface.</p>
+            <b>Suitable for:</b> Some sensitive skin, if tolerated.
+        </div>
+
+    </div>
+</section>
+ <section class="section routine-section" id="routine">
+
+    <h2>Morning & Night Skincare Routine</h2>
+    <p class="subtitle">Follow a simple routine for your skin.</p>
+
+    <div class="routine-grid">
+
+        <div class="routine-card">
+            <h3>☀️ Morning Routine</h3>
+            <ol>
+                <li>Gentle Face Wash</li>
+                <li>Niacinamide Serum</li>
+                <li>Moisturizer</li>
+                <li>Sunscreen SPF 30+</li>
+            </ol>
+        </div>
+         <div class="routine-card">
+            <h3>🌙 Night Routine</h3>
+            <ol>
+                <li>Cleanse your face</li>
+                <li>Apply suitable serum</li>
+                <li>Use moisturizer</li>
+                <li>Allow your skin to rest</li>
+            </ol>
+        </div>
+
+    </div>
+</section>
+<section class="section tips" id="tips">
+    <h2>Skincare Tips</h2>
+    <div class="tips-grid">
+        <div>☀️ <h3>Use Sunscreen</h3>
+            Apply broad-spectrum SPF 30+ during the day.</div>
+        <div>💧 <h3>Stay Hydrated</h3>
+            Use a suitable moisturizer.</div>
+        <div>🌸 <h3>Be Gentle</h3>
+            Avoid harsh scrubs and too many active ingredients.</div>
+        <div>🧴 <h3>Patch Test</h3>
+            Test new products before regular use.</div>
+    </div>
+</section>
+
+<section class="about">
+    <h2>About Glowify</h2>
+    <p>
+        Glowify is a skincare education and product discovery platform.
+        Our goal is to help people understand their skin types,
+        skincare ingredients and product choices.
+    </p>
+</section>
+
+<footer>
+    <h2>Glowify ♡</h2>
+    <p>Glow Better. Feel Better.</p>
+    <p>© 2026 Glowify. All Rights Reserved.</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
